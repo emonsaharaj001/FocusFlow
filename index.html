@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="FocusFlow helps students track study time, subjects, and daily progress.">
+
+  <title>FocusFlow — Study Smarter</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <a href="#dashboard" class="brand">
+        <span class="brand-icon">F</span>
+        <span>FocusFlow<span class="brand-dot">.</span></span>
+      </a>
+
+      <div class="sidebar-label">WORKSPACE</div>
+
+      <nav class="navigation">
+        <a href="#dashboard" class="nav-link active">
+          <span>▦</span> Dashboard
+        </a>
+        <a href="#timer-section" class="nav-link">
+          <span>◷</span> Study Timer
+        </a>
+        <a href="#subjects-section" class="nav-link">
+          <span>▤</span> My Subjects
+        </a>
+        <a href="#report-section" class="nav-link">
+          <span>▥</span> Study Reports
+        </a>
+        <a href="#study-history" class="nav-link">
+          <span>◴</span> Study History
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="focus-card">
+          <div class="focus-card-icon">✦</div>
+          <h3>Small steps matter.</h3>
+          <p>Every minute you study is progress.</p>
+        </div>
+        <p class="sidebar-footer">FOCUSFLOW © 2026</p>
+      </div>
+    </aside>
+
+    <!-- Main Dashboard -->
+    <main class="main-content" id="dashboard">
+
+      <!-- Header -->
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL STUDY SPACE</p>
+          <h1>Good to see you! <span>✦</span></h1>
+          <p class="subtitle">Make today count, one session at a time.</p>
+        </div>
+
+        <div class="profile">
+          <div class="profile-avatar">S</div>
+          <div>
+            <strong>My Study Space</strong>
+            <span>Student Dashboard</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Welcome Banner -->
+      <section class="welcome-banner">
+        <div class="welcome-copy">
+          <span class="banner-tag">YOUR DAILY JOURNEY</span>
+          <h2>A little progress<br>goes a long way.</h2>
+          <p>Stay consistent. Your future self will thank you.</p>
+          <a href="#timer-section" class="banner-button">
+            Start studying <span>→</span>
+          </a>
+        </div>
+
+        <div class="banner-art" aria-hidden="true">
+          <div class="art-circle circle-one"></div>
+          <div class="art-circle circle-two"></div>
+          <div class="book-illustration">
+            <span>✦</span>
+            <div class="book-page"></div>
+          </div>
+          <div class="art-spark spark-one">✦</div>
+          <div class="art-spark spark-two">✧</div>
+        </div>
+      </section>
+
+      <!-- Statistics -->
+      <section class="stats-grid" aria-label="Study statistics">
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span class="stat-icon purple">◷</span>
+            <span class="stat-caption">TODAY</span>
+          </div>
+          <p>Total study time</p>
+          <h3 id="total-study-time">0m</h3>
+          <span class="stat-note">Across all subjects</span>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span class="stat-icon green">✓</span>
+            <span class="stat-caption">SESSIONS</span>
+          </div>
+          <p>Study sessions</p>
+          <h3 id="total-sessions">0</h3>
+          <span class="stat-note">Completed today</span>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span class="stat-icon orange">◎</span>
+            <span class="stat-caption">DAILY GOAL</span>
+          </div>
+          <p>Study goal</p>
+          <h3>
+            <span id="goal-progress">0</span>
+            <small> / 4h</small>
+          </h3>
+          <div class="progress-track">
+            <div class="progress-fill" id="goal-progress-bar"></div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Timer and Subjects -->
+      <section class="content-grid">
+
+        <!-- Study Timer -->
+        <article class="panel timer-panel" id="timer-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">LET'S GET IN THE ZONE</p>
+              <h2>Study Timer</h2>
+            </div>
+            <span class="live-indicator">
+              <span></span> Focus mode
+            </span>
+          </div>
+
+          <label for="subject-select" class="field-label">
+            What are you studying?
+          </label>
+
+          <select id="subject-select">
+            <option value="Mathematics">Mathematics</option>
+            <option value="English">English</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Biology">Biology</option>
+            <option value="ICT">ICT</option>
+            <option value="Bangla">Bangla</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <div class="timer-display">
+            <div class="timer-ring">
+              <div class="timer-ring-inner">
+                <span id="timer-status">READY TO FOCUS</span>
+                <strong id="timer-display">00:00:00</strong>
+                <span id="timer-subject">Mathematics</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timer-actions">
+            <button class="button button-primary" id="start-btn" type="button">
+              ▶ Start session
+            </button>
+            <button class="button button-secondary" id="finish-btn" type="button" disabled>
+              Finish
+            </button>
+          </div>
+
+          <p class="timer-hint">
+            Choose a subject, then start your session.
+          </p>
+        </article>
+
+        <!-- Subjects -->
+        <article class="panel subjects-panel" id="subjects-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">YOUR LEARNING BREAKDOWN</p>
+              <h2>Today's Subjects</h2>
+            </div>
+            <span class="small-badge">Today</span>
+          </div>
+
+          <!-- Add Custom Subject -->
+          <div class="add-subject-form">
+            <h3>Add a New Subject</h3>
+
+            <form id="add-subject-form">
+              <input
+                type="text"
+                id="new-subject-input"
+                placeholder="Enter subject name"
+                maxlength="40"
+                autocomplete="off"
+                required
+              >
+              <button type="submit">+ Add Subject</button>
+            </form>
+
+            <p id="subject-message" aria-live="polite"></p>
+          </div>
+
+          <!-- Subject Summary -->
+          <div id="subject-summary" class="subject-summary">
+            <div class="empty-state">
+              <span>📚</span>
+              <strong>Your study story starts here.</strong>
+              <p>Complete a study session to see your subject-wise time.</p>
+            </div>
+          </div>
+
+          <div class="subject-total">
+            <span>Total study time</span>
+            <strong id="subject-total-time">0m</strong>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Weekly Report -->
+      <section class="panel report-panel" id="report-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CONSISTENCY OVER PERFECTION</p>
+            <h2>Your Weekly Overview</h2>
+          </div>
+          <span class="small-badge">Last 7 days</span>
+        </div>
+
+        <div class="weekly-chart" id="weekly-chart">
+          <p class="empty-report">
+            Your weekly study report will appear here after you complete a session.
+          </p>
+        </div>
+      </section>
+
+      <!-- NEW: Study History -->
+      <section class="panel history-section" id="study-history">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR LEARNING JOURNEY</p>
+            <h2>Study History</h2>
+            <p class="subtitle">Review your recently completed study sessions.</p>
+          </div>
+          <span class="small-badge">Recent sessions</span>
+        </div>
+
+        <div id="session-history" class="session-history">
+          <div class="empty-state">
+            <span>📖</span>
+            <strong>No sessions yet</strong>
+            <p>Your completed study sessions will appear here.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="page-footer">
+        <span>
+          Made with care for better learning.
+          <span class="footer-heart">♥</span>
+        </span>
+        <span>FocusFlow © 2026</span>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>
